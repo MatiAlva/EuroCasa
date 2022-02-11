@@ -13,7 +13,8 @@ const Navbar = () => {
       <Wrapper>
         <IconContext.Provider value={{ style: {fontSize: "2em"} }}>
         <LogoContainer>
-          <ImgLogo src={Logo} alt='Logo' />
+          <ImgLogo src={Logo} alt='Logo'>
+          </ImgLogo> 
         </LogoContainer>
           <MobileIcon onClick={() => setshowMobileMenu(!showMobileMenu)}>
               {showMobileMenu ? <FaTimes /> : <FaBars />}

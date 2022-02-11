@@ -10,7 +10,7 @@ export const ImgLogo = styled.img`
 export const Container = styled.div`
   width: 100%;
   height: 70px;
-  background-color: #23394d; 
+  background-color: ${props => props.theme.pallet.primary}; 
   position: relative;
 `;
 
@@ -30,7 +30,7 @@ export const LogoContainer = styled.div`
   display: flex;
   align-items: center;
   font-size: 1.2rem;
-  font-family: sans-serif;
+  font-family: ${props => props.theme.fonts};
 `;
 
 export const Menu = styled.ul`
@@ -69,8 +69,10 @@ export const MenuItemLink = styled.a`
   align-items: center;
   height: 100%;
   padding: 0.5rem 2.5rem;
-  color: #64b2ff;
-  font-family: sans-serif;
+  color: ${props => props.theme.pallet.third};
+  list-style: none;
+  text-decoration: none;
+  font-family: ${props => props.theme.fonts};
   font-size: 1rem;
   font-weight: 300;
   cursor: pointer;
@@ -83,7 +85,7 @@ export const MenuItemLink = styled.a`
     align-items: center;
     svg {
       display: none;
-      fill: red;
+      fill: ${props => props.theme.pallet.secondary} ;
       margin-right: 0.5rem;
     }
   }
@@ -131,10 +133,8 @@ export const MobileIcon = styled.div`
   @media screen and (max-width: 960px) {
     display: flex;
     align-items: center;
-
-
     svg {
-      fill: red;
+      fill: ${props => props.theme.pallet.secondary} ;
       margin-right: 0.5rem;
     }
   }

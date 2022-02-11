@@ -1,21 +1,23 @@
 import React from 'react'
 import ICONO_Sillon from '../img/ICONO_Sillon.png'
-import './Section.css'
 import {Nosotros} from '../constants/Nosotros'
+import {SectionC, P} from './SectionStyled'
 
 const Section = () => {
   return (
-    <div className='Container' id='Productos'>
+    <>
+    <SectionC>
         <div>
-           <img src={ICONO_Sillon}/>
+           <img src={ICONO_Sillon} alt='Imagen de Sillon'/>
         </div>
         <div>
             <h1>Nosotros</h1>
               {Nosotros.map(({description}, i) => (
-                <p>{description}</p>
+                <P key={i}>{description}</P>
             ))}
-          </div>   
-    </div>
+         </div>   
+    </SectionC>
+    </>
   )
 }
 

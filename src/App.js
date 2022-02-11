@@ -4,16 +4,20 @@ import Section from './components/Section/Section';
 import Footer from './components/Footer/Footer';
 import Layout from './components/Layout/Layout';
 import Article from './components/Article/Article';
+import theme from './components/constants/theme';
+import {ThemeProvider} from 'styled-components'
 
 
 function App() {
   return (
     <Layout>
-      <Navbar />
-      <Header />
-      <Section />
-      <Article />
-      <Footer />
+      <ThemeProvider theme={theme}>
+        <Navbar />
+        <Header />
+        <Section />
+        <Article />
+        <Footer />
+      </ThemeProvider> 
     </Layout>
   );
 }

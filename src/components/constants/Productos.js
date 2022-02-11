@@ -1,16 +1,16 @@
-export const Products = [
+export const Productos = [
     {
-        img: '/img/IMG_Cómoda.png',
+        imagen: "IMG_Cómoda.png",
         tittle: 'Comoda',
         description: 'Dormitorio',
     },
     {
-        img: 'img/IMG_Sillon.png',
+        imagen: "IMG-Sillon.png",
         tittle: 'Silla',
         description: 'Cocina',
     },
     {
-        img: 'img/IMG_MesaRatona.png',
+        imagen: 'IMG_MesaRatona.png',
         tittle: 'Mesa Ratona',
         description: 'Living/Comedor',
     },

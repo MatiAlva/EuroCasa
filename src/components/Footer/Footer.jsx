@@ -1,64 +1,61 @@
-import React from 'react'
-import './FooterStyled.css'
+import {ContactHorarios} from '../constants/ContactHorarios'
+import {ContactoTelefonos} from '../constants/ContactoTelefonos'
+import {FcPhone} from 'react-icons/fc'
+import {FaWhatsapp} from 'react-icons/fa'
+import {TiLocation} from 'react-icons/ti'
+import {Content, ContactWrapper, ContactForm, ContactInfo, ContactHorario, PieDePagina} from './FooterStyled'
+import Form from './Form'
+import {saveData} from '../service'
+
+
 
 function Footer() {
+
+    const handleSubmit = (data) => {
+        saveData(data)
+    }
+
   return (
     <div id='Contacto'>
-    <div className="content">
-        <div className="contact-wrapper animated bounceInUp">
-            <div className="contact-form">
-                <h3>Formulario</h3>
-                <form action="">
-                    <p>
-                        <label>FullName</label>
-                        <input type="text" name="Nmae" placeholder='Nombre'/>
-                    </p>
-                    <p>
-                        <label>Provincia</label>
-                        <input type="email" name="email" />
-                    </p>
-                    <p>
-                        <label>Email</label>
-                        <input type="email" name="email" placeholder='ejepmple@ejemple.com'/>
-                    </p>
-                    <p>
-                        <label>Affair</label>
-                        <input type="text" name="affair" />
-                    </p>
-                    <p>
-                        <label>Telefono</label>
-                        <input type="email" name="email" placeholder='1111111111'/>
-                    </p>
-                    <p className="block">
-                       <label>Consulta</label> 
-                        <textarea name="message" rows="3" placeholder='Ingrese aqui su consulta'></textarea>
-                    </p>
-                    <p className="block">
-                        <button>
-                            Enviar
-                        </button>
-                    </p>
-                </form>
-            </div>
-            <div className="contact-info">
-                <h4>Contacto</h4>
-                <ul>
-                    <li><i class="fas fa-map-marker-alt"></i> 0800-000-0000</li>
-                    <li><i class="fas fa-phone"></i> (111) 111 111 111</li>
-                    <li>Lorem ipsum 555</li>
-                </ul>
-            </div>
-            <div className="contact-horario">
-                <h4>Horarios</h4>
-                <p>Lunes a Viernes</p>
-                <p>10:00 - 19:00:hs.</p>
-            </div>
-        </div>
-
-    </div>
-    <div className='PieDePagina'>
-        <p> Todos los derechos reservados </p>
-    </div>
+        <Content>
+            <ContactWrapper animated bounceInUp>
+                <ContactForm>
+                    <Form handleSubmit={handleSubmit}/>
+                </ContactForm>
+                {ContactoTelefonos.map(({titulo, linea, whatsApp, ubicacion}, i) => (
+                    <ContactInfo key={i}>          
+                        <h4>{titulo}</h4>
+                        <ul>
+                            <li>
+                                <FcPhone/>
+                                {linea}
+                            </li>
+                            <li>
+                                <FaWhatsapp />
+                                 {whatsApp}
+                            </li>
+                            <li>
+                                <TiLocation />
+                                {ubicacion}
+                            </li>
+                        </ul>
+                    </ContactInfo>
+                ))}
+                {ContactHorarios.map(({horario,dias, titulo}, i) => (
+                    <ContactHorario key={i}>
+                        <h4>{titulo}</h4>
+                        <ul>
+                           <li>{dias}</li>
+                           <li>{horario}</li> 
+                        </ul>
+                        
+                    </ContactHorario>
+                ))}
+            </ContactWrapper>
+        </Content>
+        <PieDePagina>
+            <p> Todos los derechos reservados </p>
+        </PieDePagina>
     </div>
   )
 }
